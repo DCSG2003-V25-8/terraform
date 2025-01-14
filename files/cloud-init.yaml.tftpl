@@ -1,0 +1,15 @@
+#cloud-config
+hostname: haproxy
+package_update: true
+# package_upgrade: true
+packages:
+  - haproxy
+  - net-tools
+# Uses terraform template file function to read the haproxy.cfg and haproxy.pem files and encode them in base64
+write_files:
+  - path: /etc/haproxy/haproxy.cfg
+    encoding: base64
+    content: "${filebase64("${path}/haproxy.cfg")}"
+  - path: /etc/haproxy/haproxy.pem
+    encoding: base64
+    content: "${filebase64("${path}/haproxy.pem")}"
