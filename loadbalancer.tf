@@ -4,4 +4,5 @@ resource "openstack_compute_instance_v2" "loadbalancer" {
   flavor_name       = "gx1.1c1r"
   key_pair = openstack_compute_keypair_v2.MasterKey.name
   security_groups = ["default"]
+  power_state = "active"
 }
