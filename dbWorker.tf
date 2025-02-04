@@ -6,5 +6,5 @@ resource "openstack_compute_instance_v2" "db_worker" {
   key_pair = openstack_compute_keypair_v2.Manager.name
   security_groups = ["default"]
   power_state = "active"
-  user_data = templatefile("./dbWorker.yaml", { VAR = file("./githubPat") })
+  user_data = file("./dbWorker.yaml")
 }

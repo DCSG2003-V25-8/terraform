@@ -20,6 +20,6 @@ resource "openstack_compute_instance_v2" "ingress" {
   key_pair = openstack_compute_keypair_v2.Manager.name
   security_groups = ["default"]
   power_state = "active"
-  user_data = templatefile("./ingress.yaml", { VAR = file("./githubPat") })
+  user_data = file("./ingress.yaml")
 }
 
