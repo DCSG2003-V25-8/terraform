@@ -1,0 +1,4 @@
+#cloud-config
+
+runcmd:
+  - docker swarm join --token SWMTKN-1-4owri9gfqmxb7jv593039266ou4xo88gm1le50fmzh2jeue9da-bx3e2tuc2b1385957e7e64idx 192.168.131.42:2377

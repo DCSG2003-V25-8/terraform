@@ -20,7 +20,7 @@ provider "openstack" {
 }
 
 
-resource "openstack_compute_keypair_v2" "MasterKey" {
-  name = "MasterKey"
+resource "openstack_compute_keypair_v2" "Manager" {
+  name = "Manager"
   public_key = file("./master.pub")
 }
