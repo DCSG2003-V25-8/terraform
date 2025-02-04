@@ -1,11 +1,11 @@
-resource "openstack_compute_instance_v2" "basic" {
+locals {
+  haproxy_config = base64encode(templatefile("${path.module}/files/loadbalancer/haproxy.cfg.tftpl", {ips = openstack_compute_instance_v2.webServer.*.access_ip_v4}))
+}
+
+resource "openstack_compute_instance_v2" "loadbalancer" {
   name            = "Terraform loadbalancer"
   image_name        = "Ubuntu Server 22.04 LTS (Jammy Jellyfish) amd64"
   flavor_name       = "gx1.1c1r"
-  key_pair = local.keyName
+  key_pair = openstack_compute_keypair_v2.MasterKey.name
   security_groups = ["default"]
-  user_data = templatefile("${path.module}/files/cloud-init.yaml.tftpl", {path = "${path.module}/files"})
-#   lifecycle {
-#     ignore_changes = [ user_data ]
-#   }
 }

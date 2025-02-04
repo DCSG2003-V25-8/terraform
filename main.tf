@@ -19,11 +19,8 @@ provider "openstack" {
   user_domain_name = "Default"
 }
 
-locals {
-  keyName = "MasterKey"
-}
 
 resource "openstack_compute_keypair_v2" "MasterKey" {
-  name = local.keyName
+  name = "MasterKey"
   public_key = file("./master.pub")
 }
