@@ -1,4 +1,6 @@
 #cloud-config
+mounts:
+  - ["/dev/vdb", "/bfdata"]
 
 runcmd:
   - "printf '{\n  \"labels\": [\n    \"role=db-worker\"\n  ]\n}\n' > /etc/docker/daemon.json"
