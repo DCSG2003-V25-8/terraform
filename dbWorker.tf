@@ -1,7 +1,7 @@
 resource "openstack_compute_instance_v2" "db_worker" {
   name = "tf-db-worker"
   image_id = "406238e3-bac8-4e78-80ac-911d47d46c14"
-  flavor_name = "sx3.12c24r"
+  flavor_name = "sx3.8c16r"
   key_pair = openstack_compute_keypair_v2.Manager.name
   security_groups = ["default"]
   power_state = "active"
