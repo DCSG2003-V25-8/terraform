@@ -17,7 +17,6 @@ provider "openstack" {
   auth_url    = "https://api.skyhigh.iik.ntnu.no:5000/"
   region      = "SkyHiGh"
   user_domain_name = "Default"
-  password = file("./servicePass")
 }
 
 
